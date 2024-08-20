@@ -1,7 +1,7 @@
 # **Advantages of Having a Brain**
 
 ## **Project Description**
-This repository contains the code developed for the project titled *Advantages of Having a Brain*, a dissertation presented for the degree of MSc in Computational Applied Mathematics at the University of Edinburgh. The project explores the evolution of intelligence using a mathematical model inspired by the work of McNally et al. (2012). The model simulates populations of individuals represented by artificial neural networks, engaging in various game theory scenarios. These interactions aim to study the selective pressures that drive the development of advanced cognitive abilities in different social environments.
+This repository contains the code developed for the project titled *Advantages of Having a Brain*, a dissertation presented for the degree of MSc in Computational Applied Mathematics at the University of Edinburgh. The project explores the evolution of intelligence using a mathematical model based on the work of [McNally et al. (2012)](http://doi.org/10.1098/rspb.2012.0206). The model simulates populations of individuals represented by artificial neural networks, engaging in various game theory scenarios. These interactions aim to study the selective pressures that drive the development of advanced cognitive abilities in different social environments.
 
 Supervisors: Dr. Tibor Antal and Mr. Alex Richardson
 
@@ -25,3 +25,8 @@ Supervisors: Dr. Tibor Antal and Mr. Alex Richardson
 
 ## **Credits**
 - **Supervisors:** Dr. Tibor Antal and Mr. Alex Richardson
+- **Based on:** McNally, L., Brown, S.P., & Jackson, A.L. (2012), "Cooperation and the evolution of intelligence," *Proc. R. Soc. B.*, 279, 3027–3034. [http://doi.org/10.1098/rspb.2012.0206](http://doi.org/10.1098/rspb.2012.0206)
+
+## **References**
+
+1. McNally, L., Brown, S.P., & Jackson, A.L. (2012). Cooperation and the evolution of intelligence. *Proc. R. Soc. B.*, 279, 3027–3034. [http://doi.org/10.1098/rspb.2012.0206](http://doi.org/10.1098/rspb.2012.0206)
