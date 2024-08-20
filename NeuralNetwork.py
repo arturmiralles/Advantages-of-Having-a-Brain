@@ -1,6 +1,7 @@
 import random
 import numpy as np
 import scipy
+import copy
 
 sigma_0 = 1
 
@@ -305,6 +306,61 @@ class NeuralNetwork:
         
         for weight in other.weights_inner_node_output:
             self.weights_inner_node_output.append(weight)
+
+    def crossover(self, parent1, parent2):
+        self.first_round = random.choice([parent1.first_round, parent2.first_round])
+        self.output_threshold = random.choice([parent1.output_threshold, parent2.output_threshold])
+        
+        parent1_cognitive = len(parent1.inner_nodes)
+        parent2_cognitive = len(parent2.inner_nodes)
+        
+        offspring_cognitive = random.randint(min(parent1_cognitive, parent2_cognitive), max(parent1_cognitive, parent2_cognitive))
+        
+        self.inner_nodes = []
+        self.weights_self_payoff_inner_node = []
+        self.weights_opponent_payoff_inner_node = []
+        self.weights_inner_node_output = []
+        
+        parent1_cognitive_indices = list(range(parent1_cognitive))
+        parent2_cognitive_indices = list(range(parent2_cognitive))
+        
+        random.shuffle(parent1_cognitive_indices)
+        random.shuffle(parent2_cognitive_indices)
+        
+        for i in range(offspring_cognitive):
+            if parent1_cognitive_indices and parent2_cognitive_indices:
+                if random.random() < 0.5:
+                    node_id = parent1_cognitive_indices.pop()
+                    new_node = copy.deepcopy(parent1.inner_nodes[node_id])
+                    self.inner_nodes.append(new_node)
+                    self.weights_self_payoff_inner_node.append(parent1.weights_self_payoff_inner_node[node_id])
+                    self.weights_opponent_payoff_inner_node.append(parent1.weights_opponent_payoff_inner_node[node_id])
+                    self.weights_inner_node_output.append(parent1.weights_inner_node_output[node_id])
+                else:
+                    node_id = parent2_cognitive_indices.pop()
+                    new_node = copy.deepcopy(parent2.inner_nodes[node_id])
+                    self.inner_nodes.append(new_node)
+                    self.weights_self_payoff_inner_node.append(parent2.weights_self_payoff_inner_node[node_id])
+                    self.weights_opponent_payoff_inner_node.append(parent2.weights_opponent_payoff_inner_node[node_id])
+                    self.weights_inner_node_output.append(parent2.weights_inner_node_output[node_id])
+                    
+            elif parent1_cognitive_indices:
+                node_id = parent1_cognitive_indices.pop()
+                new_node = copy.deepcopy(parent1.inner_nodes[node_id])
+                self.inner_nodes.append(new_node)
+                self.weights_self_payoff_inner_node.append(parent1.weights_self_payoff_inner_node[node_id])
+                self.weights_opponent_payoff_inner_node.append(parent1.weights_opponent_payoff_inner_node[node_id])
+                self.weights_inner_node_output.append(parent1.weights_inner_node_output[node_id])
+                
+            elif parent2_cognitive_indices:
+                node_id = parent2_cognitive_indices.pop()
+                new_node = copy.deepcopy(parent2.inner_nodes[node_id])
+                self.inner_nodes.append(new_node)
+                self.weights_self_payoff_inner_node.append(parent2.weights_self_payoff_inner_node[node_id])
+                self.weights_opponent_payoff_inner_node.append(parent2.weights_opponent_payoff_inner_node[node_id])
+                self.weights_inner_node_output.append(parent2.weights_inner_node_output[node_id])
+        
+        self.context_node_count = sum(node.context_node for node in self.inner_nodes)
                 
     def forward(self, self_payoff, opponent_payoff):
         '''

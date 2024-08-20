@@ -5,12 +5,13 @@ import time
 import random
 
 number_of_networks = 50 # Parameter N.
-number_of_generations = 50000
+number_of_generations = 10
 game = "IPD" # Options: "IPD" (Iterated Prisoner's Dilemma), "ISD" (Iterated Snowdrift Dilemma).
 mutation_value_probability = 0.1 # Parameter p_v.
 mutation_structure_probability = 0.02 # Parameter p_s.
 offspring_rate = 1
-reproduction_method = "asexual_TE"  # Options: "asexual_TE" (asexual Truncated Elitism), "sexual_TE" (sexual Truncated Elitism), "proportionate_selection" (asexual Proportionate Selection).
+reproduction_method = "sexual_TE"  # Options: "asexual_TE" (asexual Truncated Elitism), "sexual_TE" (sexual Truncated Elitism), "proportionate_selection" (asexual Proportionate Selection).
+csv_filename = f"{game}_{number_of_networks}_nets_{number_of_generations}_gens.csv"
 
 class Simulation:
     '''This simulation file is for reproduction visualisation purposes. Each individual produces '''
@@ -220,7 +221,7 @@ class Simulation:
         '''Function that saves the data from the self.data matrix into a csv file. This allows for easier plotting in the future without
         having to run long simulations every time.'''
         keys = self.data[0].keys()
-        with open(f'{game}_{number_of_networks}_nets_{number_of_generations}_gens.csv', 'w', newline='') as output_file:
+        with open(csv_filename, 'w', newline='') as output_file:
             dict_writer = csv.DictWriter(output_file, fieldnames=keys)
             dict_writer.writeheader()
             dict_writer.writerows(self.data)
