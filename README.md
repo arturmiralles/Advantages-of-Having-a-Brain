@@ -8,15 +8,15 @@ Supervisors: Dr. Tibor Antal and Mr. Alex Richardson
 ## **How to Install and Run the Project**
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/your-repository-name.git
+   git clone https://github.com/arturmiralles/Advantages-of-Having-a-Brain
    ```
 2. **Navigate to the project directory:**
    ```bash
-   cd your-repository-name
+   cd Advantages-of-Having-a-Brain
    ```
 3. **Run the Simulation:**
    - Open `Simulation.py`.
-   - Choose your desired parameters (e.g., number of generations, mutation probabilities) and specify the name of the output CSV file.
+   - Choose your desired parameters (e.g., population size, number of generations, mutation probabilities) and specify the name of the output CSV file.
    - Execute the code:
      ```bash
      python Simulation.py
