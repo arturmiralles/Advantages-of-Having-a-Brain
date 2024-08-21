@@ -8,7 +8,7 @@ Supervisors: Dr. Tibor Antal and Mr. Alex Richardson
 ## **How to Install and Run the Project**
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/arturmiralles/Advantages-of-Having-a-Brain
+   git clone https://github.com/arturmiralles/Advantages-of-Having-a-Brain.git
    ```
 2. **Navigate to the project directory:**
    ```bash
